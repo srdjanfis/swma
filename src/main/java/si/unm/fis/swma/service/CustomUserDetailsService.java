@@ -1,5 +1,6 @@
 package si.unm.fis.swma.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,13 +12,10 @@ import si.unm.fis.swma.repository.HUserRepository;
 import java.util.ArrayList;
 
 @Service
+@RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final HUserRepository userRepository;
-
-    public CustomUserDetailsService(HUserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
